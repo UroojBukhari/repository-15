@@ -1,0 +1,54 @@
+/* Center content */
+body {
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide default checkbox */
+.toggle input {
+  display: none;
+}
+
+/* Toggle container */
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Slider (background bar) */
+.slider {
+  position: absolute;
+  background-color: #ccc;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Slider knob */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  top: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* When checked - move knob and change background */
+.toggle input:checked + .slider {
+  background-color: #4caf50;
+}
+
+.toggle input:checked + .slider::before {
+  transform: translateX(30px);
+}
